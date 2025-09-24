@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8" />
+  <title>GJ-Lang: Gujarati Inspired Programming</title>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="#" class="site-logo" aria-label="BhashaBytes Home">
+    <img src="logo.png" alt="BhashaBytes Logo" />
+  </a>
+  <h1>GJ-Lang: Gujarati-Inspired Programming</h1>
+
+  <div class="intro-card">
+    <p>
+      Welcome to <strong>GJ-Lang</strong> – a programming language designed especially for Gujarati speakers!
+      GJ-Lang makes coding more intuitive by using Gujarati words and their transliterations as keywords,
+      instead of English-based Python syntax. It’s beginner-friendly and runs fully on Python via a translation layer.
+    </p>
+    <p>
+      Write code below, run it instantly, and explore GJ-Lang’s features with live examples. Learning programming
+      has never been this friendly!
+    </p>
+  </div>
+
+  <div class="container">
+    <textarea id="gjCode" rows="10" placeholder="તમારો ગુજરાતી કોડ અહીં લખો...">બતાવો("Hello GJ-Lang!")</textarea>
+    <br>
+    <button onclick="runCode()">Run Code</button>
+    <pre id="output">Output will appear here...</pre>
+  </div>
+
+  <h2>Documentation & Examples</h2>
+  <div class="docs">
+    <h3>Print (બતાવો / batavo)</h3>
+    <pre>બતાવો("Hello World")</pre>
+
+    <h3>Functions (પરિભાષો / paribhasho)</h3>
+    <pre>પરિભાષો ઉમેરો(a, b):
+    પાછો a + b
+બતાવો("ફળ =", ઉમેરો(5, 3))</pre>
+
+    <h3>Input (લાવજો / lavjo)</h3>
+    <pre>a = int(લાવજો("અંક ૧:"))
+b = int(લાવજો("અંક ૨:"))
+બતાવો("યોગ =", a + b)</pre>
+
+    <h3>Conditionals</h3>
+    <pre>i = 5
+જો i > 3:
+    બતાવો("i મોટું")
+નહિતોજો i == 3:
+    બતાવો("i સમાન")
+નહિતો:
+    બતાવો("i નાનું")</pre>
+
+    <h3>Loops</h3>
+    <pre>માટે x in [1,2,3]:
+    બતાવો("x =", x)
+i = 0
+જ્યાંસુધી i < 3:
+    બતાવો("i =", i)
+    i += 1</pre>
+
+    <h3>Loop Control</h3>
+    <pre>માટે x in [1,2,3]:
+    જો x == 2:
+        બતાવો("બીજું મળ્યું")
+        તોડો
+    નહિતો:
+        બતાવો(x)</pre>
+
+    <h3>Booleans & None</h3>
+    <pre>જો સાચું:
+    બતાવો("True")
+નહિતોજો ખોટું:
+    બતાવો("False")
+બતાવો("કોઈ નહીં =", કૈનનથી)</pre>
+
+    <h3>Exceptions</h3>
+    <pre>પ્રયત્નકરો:
+    1 / 0
+સિવાય ZeroDivisionError:
+    બતાવો("શૂન્યથી ભાગ શક્ય નથી")
+અંતેમાં:
+    બતાવો("હંમેશાં ચાલે છે")</pre>
+
+    <h3>Imports</h3>
+    <pre>આયાતકરો math તરીકે m
+બતાવો(m.sqrt(4))</pre>
+
+    <p>Modify the examples above and run your own GJ-Lang code!</p>
+  </div>
+
+  <h2>GJ-Lang Keywords</h2>
+  <div class="reference-box">
+    <table>
+      <thead>
+        <tr>
+          <th>Python</th>
+          <th>Gujarati Script</th>
+          <th>Transliteration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>print</td><td>બતાવો</td><td>batavo</td></tr>
+        <tr><td>input</td><td>લાવજો</td><td>lavjo</td></tr>
+        <tr><td>if</td><td>જો</td><td>jo</td></tr>
+        <tr><td>elif</td><td>નહિતોજો</td><td>nahitojo</td></tr>
+        <tr><td>else</td><td>નહિતો</td><td>nahito</td></tr>
+        <tr><td>for</td><td>માટે</td><td>mate</td></tr>
+        <tr><td>while</td><td>જ્યાંસુધી</td><td>jyansudhi</td></tr>
+        <tr><td>def</td><td>પરિભાષો</td><td>paribhasho</td></tr>
+        <tr><td>class</td><td>વર્ગ</td><td>varg</td></tr>
+        <tr><td>return</td><td>પાછો</td><td>pachho</td></tr>
+        <tr><td>break</td><td>તોડો</td><td>todo</td></tr>
+        <tr><td>continue</td><td>ચાલુરાખો</td><td>chalurakho</td></tr>
+        <tr><td>import</td><td>આયાતકરો</td><td>aayatkaro</td></tr>
+        <tr><td>from</td><td>થી</td><td>thi</td></tr>
+        <tr><td>as</td><td>તરિકે</td><td>tarike</td></tr>
+        <tr><td>with</td><td>સાથે</td><td>sathe</td></tr>
+        <tr><td>try</td><td>પ્રયત્નકરો</td><td>prayatnkaro</td></tr>
+        <tr><td>except</td><td>સિવાય</td><td>sivay</td></tr>
+        <tr><td>finally</td><td>અંતેમાં</td><td>antema</td></tr>
+        <tr><td>True</td><td>સાચું</td><td>sachu</td></tr>
+        <tr><td>False</td><td>ખોટું</td><td>khotu</td></tr>
+        <tr><td>None</td><td>કૈનનથી</td><td>kainnathi</td></tr>
+        <tr><td>or</td><td>અથવા</td><td>athva</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    let pyodideReady = false;
+    let pyodide;
+
+    async function loadPyodideAndPackages() {
+      pyodide = await loadPyodide();
+      pyodide.runPython(`
+import sys
+from js import document, prompt
+
+class OutputCatcher:
+    def write(self, s):
+        if s:
+            output = document.getElementById("output")
+            output.textContent += s
+    def flush(self): pass
+
+sys.stdout = OutputCatcher()
+sys.stderr = OutputCatcher()
+
+def input(msg=""):
+    resp = prompt(str(msg))
+    return "" if resp is None else str(resp)
+`);
+      pyodideReady = true;
+    }
+    loadPyodideAndPackages();
+
+    const mapping = {
+      "બતાવો": "print", "batavo": "print",
+      "લાવજો": "input", "lavjo": "input",
+      "જો": "if", "jo": "if",
+      "નહિતોજો": "elif", "nahitojo": "elif",
+      "નહિતો": "else", "nahito": "else",
+      "માટે": "for", "mate": "for",
+      "જ્યાંસુધી": "while", "jyansudhi": "while",
+      "પરિભાષો": "def", "paribhasho": "def",
+      "વર્ગ": "class", "varg": "class",
+      "પાછો": "return", "pachho": "return",
+      "તોડો": "break", "todo": "break",
+      "ચાલુરાખો": "continue", "chalurakho": "continue",
+      "આયાતકરો": "import", "aayatkaro": "import",
+      "થી": "from", "thi": "from",
+      "તરિકે": "as", "tarike": "as",
+      "સાથે": "with", "sathe": "with",
+      "પ્રયત્નકરો": "try", "prayatnkaro": "try",
+      "સિવાય": "except", "sivay": "except",
+      "અંતેમાં": "finally", "antema": "finally",
+      "સાચું": "True", "sachu": "True",
+      "ખોટું": "False", "khotu": "False",
+      "કૈનનથી": "None", "kainnathi": "None",
+      "અથવા": "or", "athva": "or",
+    };
+
+    function escapeRegExp(str) {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function translate(code) {
+      for (let gj in mapping) {
+        const re = new RegExp(`(?<!\\w)${escapeRegExp(gj)}(?!\\w)`, 'gu');
+        code = code.replace(re, mapping[gj]);
+      }
+      return code;
+    }
+
+    async function runCode() {
+      if (!pyodideReady) {
+        alert("Pyodide is still loading...");
+        return;
+      }
+      document.getElementById("output").textContent = "";
+      const rawCode = document.getElementById("gjCode").value;
+      const pyCode = translate(rawCode);
+
+      try {
+        await pyodide.runPythonAsync(pyCode);
+      } catch (err) {
+        document.getElementById("output").textContent += "Error: " + err + "\n";
+      }
+    }
+  </script>
+</body>
+</html>
